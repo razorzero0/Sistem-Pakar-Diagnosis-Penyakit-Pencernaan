@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <!-- Font Awesome -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+            rel="stylesheet" />
+        <!-- Google Fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+            rel="stylesheet" />
+        <!-- MDB -->
+        <link
+            href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
+            rel="stylesheet" />
+        <style>
+            body {
+                /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                background: linear-gradient(to right, rgb(120, 225, 247), rgb(0, 124, 185));
+            }
+            img {
+                width: 70px;
+            }
+
+            .mini {
+                font-size: 14px;
+            }
+        </style>
+        <title>SISTEM PAKAR DETEKSI INFEKSI SISTEM SALURAN PENCERNAAN</title>
+    </head>
+    <body>
+        <section class="vh-100 gradient-custom">
+            <div class="container py-3 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col col-xl-10">
+                        <div class="card p-5">
+                            <h2 class="card-title text-center text-primary">
+                                <img src="/static/3.png" alt="" /> &nbsp; PASIEN DENGAN NAMA :
+                                <strong>{{ name }}</strong>
+                            </h2>
+                            <div class="card-body py-3">
+                                <p>Didiagnosis Mengalami :</p>
+                                <ul class="list-group list-group-light list-group-small">
+                                    {% for i in diagnosa: %} {% if i[1] >= threshold: %}
+                                    <li class="list-group-item text-success">
+                                        🩺 {{ i[0] }} : {{ i[1] }}%
+                                        <small style="font-size: 12px" class="text-black"
+                                            >({% for x in i[2] %}{{ x }}, {% endfor %})</small
+                                        >
+                                    </li>
+                                    {% else %}
+                                    <li class="list-group-item text-danger">
+                                        🩺 {{ i[0] }} : {{ i[1] }}%
+                                        <small style="font-size: 12px" class="text-black"
+                                            >({% for x in i[2] %}{{ x }}, {% endfor %})</small
+                                        >
+                                    </li>
+                                    {% endif %} {% endfor %}
+                                    <li class="list-group-item"></li>
+                                </ul>
+                                <h5 class="mt-2">
+                                    <i class="mini">Nilai Threshold : {{ threshold }}%</i>
+                                    <br />
+                                    {% if maxNilai: %} Pasien Terdiagnosa :
+                                    <strong>{{ maxPenyakit }} </strong
+                                    ><small style="font-size: 15px"
+                                        >({% for i in maxGejala %}{{ i }}, {% endfor %})</small
+                                    >
+                                    {% else %}
+                                    <strong
+                                        >Pasien belum bisa terdiagnosa, karena kurang dari nilai
+                                        threshold
+                                    </strong>
+                                    {% endif %}
+                                </h5>
+                            </div>
+                            <div class="text-end">
+                                <a href="{{ awal }}" class="text-info"
+                                    >Kembali ke halaman sebelumnya</a
+                                >
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- MDB -->
+        <script
+            type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"></script>
+    </body>
+</html>
