@@ -1,5 +1,5 @@
 # Panduan Penggunaan Sistem Pakar Diagnosis Penyakit Pencernaan
-
+<img src="https://i.ibb.co/4JMYwGR/Capture.jpg" alt="Alt text" title="Optional title">
 Berikut adalah langkah-langkah untuk meng-install dan menjalankan proyek Sistem Pakar Diagnosis Penyakit Pencernaan secara lokal.
 
 ## Langkah 1: Clone Repositori
