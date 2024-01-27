@@ -30,3 +30,6 @@ pip install -r requirements.txt
 ```bash
  flask --app app run
 ```
+
+## Google Colab Version:
+https://colab.research.google.com/drive/1eWYxdr3KjE0tOwEQOXL4G3gysDEBxUb7?usp=sharing
